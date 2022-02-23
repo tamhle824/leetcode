@@ -15,7 +15,7 @@ public class TwoSum {
         return arr;
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
         int[] ar1 = {3,3};
         System.out.println(twoSum(ar1,6));
     }
