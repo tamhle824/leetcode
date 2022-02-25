@@ -18,7 +18,7 @@ public class LongestSubstring {
             if(!map.containsKey(s.charAt(i))){
                 map.put(s.charAt(i),i);
             }else{
-                i = map.get(s.charAt(i))+1;
+                i = map.get(s.charAt(i));
                 map.clear();
             }
             if(max_size < map.size()){
