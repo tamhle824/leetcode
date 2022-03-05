@@ -2,12 +2,20 @@
 import java.text.NumberFormat.Style;
 import java.util.*;
 
+import javax.sound.midi.Sequencer.SyncMode;
+
 public class LongestPalindrome{
 
-   public static boolean isPali(String aString){
+   public static boolean isPali(String aString, int size){
+
+
        char ch;
        String nstr ="";
        int len = aString.length();
+    
+    if(len < size){
+        return false;
+    }
 
     for(int i =0; i< len;i++){
         ch = aString.charAt(i);
@@ -23,24 +31,33 @@ public class LongestPalindrome{
 
     public static void main(String[] args){
 
-        String s = "civilwartestingwhetherthatnaptionoranynartionsoconceivedandsodedicatedcanlongendureWeareqmetonagreatbattlefiemldoftzhatwarWehavecometodedicpateaportionofthatfieldasafinalrestingplaceforthosewhoheregavetheirlivesthatthatnationmightliveItisaltogetherfangandproperthatweshoulddothisButinalargersensewecannotdedicatewecannotconsecratewecannothallowthisgroundThebravelmenlivinganddeadwhostruggledherehaveconsecrateditfaraboveourpoorponwertoaddordetractTgheworldadswfilllittlenotlenorlongrememberwhatwesayherebutitcanneverforgetwhattheydidhereItisforusthelivingrathertobededicatedheretotheulnfinishedworkwhichtheywhofoughtherehavethusfarsonoblyadvancedItisratherforustobeherededicatedtothegreattdafskremainingbeforeusthatfromthesehonoreddeadwetakeincreaseddevotiontothatcauseforwhichtheygavethelastpfullmeasureofdevotionthatweherehighlyresolvethatthesedeadshallnothavediedinvainthatthisnationunsderGodshallhaveanewbirthoffreedomandthatgovernmentofthepeoplebythepeopleforthepeopleshallnotperishfromtheearth";
+        String s = "babad";
         String c ="";
+        int array[] = new int[s.length()];
         int max = 0;
-
-        // if(s.length()==1){
-        //     c = s;
-        // }
-
-        for(int i =0;i<s.length();i++){
-            for(int k=i+1;k<s.length();k++){
-            if(isPali(s.substring(i,k+1))){
-                if(s.substring(i,k+1).length()>max){
-                    c = s.substring(i,k+1);
-                    max = c.length();
-                }
-             }
+        int Center =0;
+   
+        while(Center <s.length()){
+            int Radius =0;
+            while(Center-(Radius+1)>=0 && Center+(Radius+1) < s.length() && s.charAt(Center-(Radius+1))== s.charAt(Center+(Radius+1))){
+                Radius++;
             }
+
+            array[Center] = Radius;
+            Center++;
+
+        
+
         }
+
+        for(int i = 0;i< s.length();i++){
+            System.out.println(array[i]);
+        }
+
+        
+
+
+
         if(max ==0){
             System.out.println(s.substring(0, 1));;
         }else{
