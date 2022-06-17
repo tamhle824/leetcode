@@ -31,7 +31,6 @@ public class LongestSub {
 
             }
 
-            
             // if(map.size()==K && !map.containsKey(arr.charAt(i))){
             //     System.out.println(arr.charAt(i));
             // }

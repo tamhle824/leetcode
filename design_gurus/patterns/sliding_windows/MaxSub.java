@@ -4,22 +4,19 @@ import java.util.*;
 public class MaxSub {
 
     public static int getMax(int k, int[] arr){
+        int windowSum = 0, maxSum = 0;
+        int windowStart = 0;
 
-        int max = 0;
-        int counter =0;
-        int sum = 0;
-
-        for(int i = 0;i <arr.length;i++){
-            sum+=arr[i];
-
-            if(i >= k-1){
-                max = Math.max(max,sum);
-                sum-= arr[counter];
-                counter++;
-
+        for (int windowEnd = 0;windowEnd < arr.length;windowEnd++){
+            windowSum += arr[windowEnd];
+            if (windowEnd >= k-1){
+                maxSum = Math.max(maxSum, windowSum);
+                windowSum -= arr[windowStart];
+                windowStart++;
             }
         }
-        return max;
+
+        return maxSum;
     }
 
     
